@@ -111,7 +111,7 @@ impl Material for PointsMaterial {
 
         if key.bind_group_data.use_vertex_color && layout.0.contains(Mesh::ATTRIBUTE_COLOR) {
             shader_defs.push(ShaderDefVal::from("VERTEX_COLORS"));
-            vertex_attributes.push(Mesh::ATTRIBUTE_COLOR.at_shader_location(2));
+            vertex_attributes.push(Mesh::ATTRIBUTE_COLOR.at_shader_location(7));
         }
         if key.bind_group_data.perspective {
             shader_defs.push(ShaderDefVal::from("POINT_SIZE_PERSPECTIVE"));

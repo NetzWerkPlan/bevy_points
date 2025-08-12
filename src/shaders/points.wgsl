@@ -16,7 +16,7 @@ struct Vertex {
     @location(0) position: vec3<f32>,
     @location(1) uv: vec2<f32>,
 #ifdef VERTEX_COLORS
-    @location(2) color: vec4<f32>,
+    @location(7) color: vec4<f32>, // use location 7 to match the 'bevy_pbr/src/prepass/prepass_io.wgsl' shader
 #endif
 };
 
@@ -24,7 +24,7 @@ struct VertexOutput {
     @builtin(position) clip_position: vec4<f32>,
     @location(0) uv: vec2<f32>,
 #ifdef VERTEX_COLORS
-    @location(1) color: vec4<f32>,
+    @location(8) color: vec4<f32>, // use location 8 to match the 'bevy_pbr/src/prepass/prepass_io.wgsl' shader
 #endif
 };
 
@@ -56,7 +56,7 @@ fn vertex(vertex: Vertex) -> VertexOutput {
 struct FragmentInput {
     @location(0) uv: vec2<f32>,
 #ifdef VERTEX_COLORS
-    @location(1) color: vec4<f32>,
+    @location(8) color: vec4<f32>, // use location 8 to match the 'bevy_pbr/src/prepass/prepass_io.wgsl' shader
 #endif
 };
 
