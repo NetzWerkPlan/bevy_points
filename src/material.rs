@@ -4,7 +4,8 @@ use bevy::{
     pbr::{MAX_CASCADES_PER_LIGHT, MAX_DIRECTIONAL_LIGHTS},
     prelude::{AlphaMode, Material, Mesh},
     reflect::TypePath,
-    render::render_resource::{AsBindGroup, ShaderDefVal, ShaderType},
+    render::render_resource::{AsBindGroup, ShaderType},
+    shader::ShaderDefVal,
 };
 
 use crate::SHADER_HANDLE;
@@ -69,12 +70,12 @@ impl From<&PointsMaterial> for PointsMaterialKey {
 }
 
 impl Material for PointsMaterial {
-    fn vertex_shader() -> bevy::render::render_resource::ShaderRef {
-        bevy::render::render_resource::ShaderRef::Handle(SHADER_HANDLE.clone())
+    fn vertex_shader() -> bevy::shader::ShaderRef {
+        bevy::shader::ShaderRef::Handle(SHADER_HANDLE.clone())
     }
 
-    fn fragment_shader() -> bevy::render::render_resource::ShaderRef {
-        bevy::render::render_resource::ShaderRef::Handle(SHADER_HANDLE.clone())
+    fn fragment_shader() -> bevy::shader::ShaderRef {
+        bevy::shader::ShaderRef::Handle(SHADER_HANDLE.clone())
     }
 
     fn alpha_mode(&self) -> bevy::prelude::AlphaMode {
@@ -86,9 +87,9 @@ impl Material for PointsMaterial {
     }
 
     fn specialize(
-        _pipeline: &bevy::pbr::MaterialPipeline<Self>,
+        _pipeline: &bevy::pbr::MaterialPipeline,
         descriptor: &mut bevy::render::render_resource::RenderPipelineDescriptor,
-        layout: &bevy::render::mesh::MeshVertexBufferLayoutRef,
+        layout: &bevy::mesh::MeshVertexBufferLayoutRef,
         key: bevy::pbr::MaterialPipelineKey<Self>,
     ) -> Result<(), bevy::render::render_resource::SpecializedMeshPipelineError> {
         descriptor.primitive.cull_mode = None;

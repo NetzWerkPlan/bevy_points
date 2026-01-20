@@ -1,6 +1,6 @@
 #import bevy_pbr::mesh_view_bindings::view
-#import bevy_pbr::mesh_bindings::mesh
-#import bevy_pbr::mesh_functions::{get_world_from_local, mesh_position_local_to_world, mesh_position_local_to_clip}
+#import bevy_pbr::mesh_bindings::{mesh, get_model_matrix}
+#import bevy_pbr::mesh_functions::{get_world_from_local, mesh_position_local_to_world}
 
 struct PointMaterial {
     point_size: f32,
@@ -8,7 +8,7 @@ struct PointMaterial {
     color: vec4<f32>,
 };
 
-@group(2) @binding(0)
+@group(3) @binding(0)
 var<uniform> material: PointMaterial;
 
 struct Vertex {
