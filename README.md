@@ -1,4 +1,3 @@
-
 # Bevy Points
 
 [![crates.io](https://img.shields.io/crates/v/bevy_points)](https://crates.io/crates/bevy_points)
@@ -19,7 +18,7 @@ use bevy_points::prelude::*;
 
 fn main() {
     App::new()
-        .add_plugin(PointsPlugin);
+    .add_plugins(PointsPlugin);
 }
 ```
 
@@ -43,10 +42,10 @@ fn setup(
         )),
         MeshMaterial3d(materials.add(PointsMaterial {
             settings: PointsShaderSettings {
-                point_size: 20.,    // Defines the size of the points. 
+                point_size: 20.,    // Defines the size of the points.
                 ..Default::default()
             },
-            perspective: true,      // Specify whether points' size is attenuated by the camera depth. 
+            perspective: true,      // Specify whether points' size is attenuated by the camera depth.
             circle: true,           // Specify whether the shape of points is circular or rectangular.
             ..Default::default()
         })),
@@ -76,13 +75,14 @@ fn setup(
 ## Compatibility
 
 | bevy | bevy_points |
-| ---- | ------------- |
-| 0.9  | 0.1           |
-| 0.10 | 0.2           |
-| 0.11 | 0.3           |
-| 0.12 | 0.4           |
-| 0.13 | 0.5           |
-| 0.14 | 0.6           |
-| 0.15 | 0.7           |
-| 0.16 | 0.8           |
-| 0.17 | 0.9           |
+| ---- | ----------- |
+| 0.9  | 0.1         |
+| 0.10 | 0.2         |
+| 0.11 | 0.3         |
+| 0.12 | 0.4         |
+| 0.13 | 0.5         |
+| 0.14 | 0.6         |
+| 0.15 | 0.7         |
+| 0.16 | 0.8         |
+| 0.17 | 0.9         |
+| 0.18 | 0.10        |

@@ -72,6 +72,7 @@ fn setup(
             fov: 45.0,
             aspect_ratio: 1.,
             near: 0.1,
+            near_clip_plane: Vec4::new(0.0, 0.0, 1.0, 0.1),
             far: 100.,
         }),
         Transform::from_translation(ORIGIN).looking_at(Vec3::ZERO, Vec3::Y),
